@@ -38,9 +38,11 @@ function draw() {
   fill(255);
   stroke(0);
   strokeWeight(5);
-  // for(var i = 0; i<toDo.length; i++){
+  if(toDo.length > 0){
     text("" + toDo[0], width/2, height/2);
-  // }
+  } else {
+    text("You have reached the end of the list", width/2, height/2);
+  }
 }
 
 function mousePressed() {
@@ -56,4 +58,3 @@ function keyPressed(){
   toDo.shift();
   }
 }
-
