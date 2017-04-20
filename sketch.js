@@ -24,13 +24,13 @@ function draw() {
   fill(0,255,0);
   textAlign(LEFT);
   for(var x = 0; x<complete.length; x++){
-    text("Complete: " + complete[x], 20, (x*20)+150);
+    text("Complete: " + complete[x], 20, (x*10)+150);
   }
   
   fill(255,0,0);
   textAlign(RIGHT);
   for(var y = 0; y<skipped.length; y++){
-    text("Skipped: " + skipped[y], width-20, (y*20)+150);
+    text("Skipped: " + skipped[y], width-20, (y*10)+150);
   }
   
   textSize(40);
@@ -44,11 +44,16 @@ function draw() {
 }
 
 function mousePressed() {
-	complete.push(toDo[0]);
-	toDo.shift();
+  if(toDo.length > 0) {
+    complete.push(toDo[0]);
+  	toDo.shift();
+  }
 }
 
 function keyPressed(){
+  if(toDo.length > 0) {
   skipped.push(toDo[0]);
   toDo.shift();
+  }
 }
+
